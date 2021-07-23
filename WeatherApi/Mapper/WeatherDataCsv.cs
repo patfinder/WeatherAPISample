@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace WeatherApi.Models
 {
+    /// <summary>
+    /// A class supporting walk-around to read CSV custom Date-time column.
+    /// </summary>
     public class WeatherDataCsv: WeatherData
     {
         public string date_time_localCsv { get; set; }

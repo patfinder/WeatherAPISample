@@ -8,6 +8,9 @@ using WeatherApi.Models;
 
 namespace WeatherApi.Mapper
 {
+    /// <summary>
+    /// Helper class that help CsvHelper to map date_time_local field (which is a date-time field in custom format)
+    /// </summary>
     public sealed class CsvWeatherDataMap : ClassMap<WeatherDataCsv>
     {
         public CsvWeatherDataMap()

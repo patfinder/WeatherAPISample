@@ -22,6 +22,9 @@ namespace WeatherApi.Test
         {
         }
 
+        /// <summary>
+        /// Test WeatherDataController.Get {date} funcion.
+        /// </summary>
         [Test]
         public void TestGetForDate()
         {

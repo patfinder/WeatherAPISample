@@ -7,6 +7,10 @@ using WeatherApi.Models;
 
 namespace WeatherApi.Mapper
 {
+    /// <summary>
+    /// Helper class to support AutoMapper mapping value 
+    /// from WeatherDataCsv.date_time_localCsv to WeatherData.date_time_local
+    /// </summary>
     public class WeatherDataResolver : IValueResolver<WeatherDataCsv, WeatherData, DateTime>
     {
         public DateTime Resolve(WeatherDataCsv source, WeatherData dest, DateTime destMember, ResolutionContext context)
