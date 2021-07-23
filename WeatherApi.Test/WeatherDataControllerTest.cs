@@ -51,6 +51,10 @@ namespace WeatherApi.Test
             }
         }
 
+        /// <summary>
+        /// Get DataContext option.
+        /// </summary>
+        /// <returns></returns>
         private DbContextOptions<WeatherDataContext> GetTestWeatherDataContextOptions()
         {
             var options = new DbContextOptionsBuilder<WeatherDataContext>()
@@ -60,6 +64,9 @@ namespace WeatherApi.Test
             return options;
         }
 
+        /// <summary>
+        /// Initialize test data
+        /// </summary>
         private void InitTestWeatherDataContext()
         {
             var date_time_local = new DateTime(2021, 7, 22, 1, 1, 0, 0);
@@ -142,11 +149,13 @@ namespace WeatherApi.Test
             }
         }
 
+        /// <summary>
+        /// Get AutoMapper config
+        /// </summary>
+        /// <returns></returns>
         private MapperConfiguration GetMapperConfig()
         {
             var configuration = new MapperConfiguration(config => {
-                config.CreateMap<WeatherDataCsv, WeatherData>()
-                    .ForMember(d => d.date_time_local, opt => opt.MapFrom<WeatherDataResolver>());
                 config.CreateMap<WeatherData, WeatherDataDto>();
             });
 

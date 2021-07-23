@@ -81,9 +81,8 @@ namespace WeatherApi.Controllers
                     using var csvReader = new CsvReader(reader, csvConfiguration);
                     csvReader.Context.RegisterClassMap<CsvWeatherDataMap>();
 
-                    var weatherDataCsv = csvReader.GetRecords<WeatherDataCsv>().ToList();
-                    var weatherData = weatherDataCsv.ConvertAll(s => _mapper.Map<WeatherData>(s)).ToList();
-                    
+                    var weatherData = csvReader.GetRecords<WeatherData>().ToList();
+
                     // row count
                     RowCount += weatherData.Count;
 

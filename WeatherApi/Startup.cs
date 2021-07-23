@@ -34,19 +34,12 @@ namespace WeatherApi
         {
             services.AddDbContext<WeatherDataContext>(opt => opt.UseInMemoryDatabase("WeatherDataDb"));
 
-            // Auto Mapper
-            services.AddSingleton<WeatherDataResolver>();
+            // Config Auto Mapper
             services.AddAutoMapper(config => {
-                config.CreateMap<WeatherDataCsv, WeatherData>()
-                    .ForMember(d => d.date_time_local, opt => opt.MapFrom<WeatherDataResolver>());
                 config.CreateMap<WeatherData, WeatherDataDto>();
             });
 
             services.AddControllers();
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "WeatherApi", Version = "v1" });
-            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,8 +48,6 @@ namespace WeatherApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseSwagger();
-                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WeatherApi v1"));
             }
 
             app.UseHttpsRedirection();
